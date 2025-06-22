@@ -22,10 +22,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Checkout main branch if push trigger is a tag
-      if: github.repository_owner == 'notepad-plus-plus' && github.ref_type == 'tag'
+      if: github.ref_type == 'tag'
       run: |
         git fetch --all
-        git checkout master
+        git checkout -f test/amended_release_workflow
 
     - name: Install python modules
       working-directory: .
